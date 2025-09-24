@@ -1,0 +1,44 @@
+================================================================
+http://localhost:8082/
+http://localhost:8082/about
+
+================================================================
+Use HTML Form:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Name</title>
+</head>
+<body>
+    <h1>Submit Your Name</h1>
+    <form action="http://localhost:8082/submit" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
+================================================================
+Use Postman (GUI Tool):
+
+1. 	Download Postman.
+2. 	Create a new request.
+3. 	Set method to .
+4. 	Enter URL: 
+5. 	In the Body tab, choose .
+6. 	Add a key  with value .
+7. 	Click Send — you’ll see the response.
+
+================================================================
+Use curl:
+
+curl -u admin:secret http://localhost:8080/secure-data
+
+curl -X POST http://localhost:8082/submit \
+     -H "Content-Type: application/json" \
+     -d '{"name": "Alice"}'
+
+{"message":"Thanks, Alice"}
+
