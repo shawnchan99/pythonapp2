@@ -17,6 +17,11 @@ def test_app_is_working(client):
     check.equal(response.status_code, 200)
     check.is_in(b"Hello World!", response.data)
 
+def test_about_page(client):
+    response = client.get('/about')
+    check.equal(response.status_code, 200)
+    check.is_in(b"About us...", response.data)
+
 def test_submit_route_without_name(client):
     response = client.post('/submit')
     assert response.status_code == 200
