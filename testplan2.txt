@@ -1,9 +1,14 @@
 ================================================================
+Browser URL access test:
+
 http://localhost:8082/
 http://localhost:8082/about
 
+Query Parameters test:
+http://localhost:8080/greet?name=Alice
+
 ================================================================
-Use HTML Form:
+HTML form POST test for submit(test2.html):
 
 <!DOCTYPE html>
 <html>
@@ -25,20 +30,43 @@ Use Postman (GUI Tool):
 
 1. 	Download Postman.
 2. 	Create a new request.
-3. 	Set method to .
-4. 	Enter URL: 
-5. 	In the Body tab, choose .
-6. 	Add a key  with value .
+3. 	Set method to POST
+4. 	Enter URL: http://localhost:8082/submit 
+5. 	In the Body tab, choose: x-www-form-urlencoded
+6. 	Add a key name with value Alice.
 7. 	Click Send — you’ll see the response.
 
 ================================================================
-Use curl:
+Use BASH curl:
 
-curl -u admin:secret http://localhost:8080/secure-data
+Basic Authentication test
+============================
+curl -u admin:secret http://localhost:8082/secure-data
 
+
+Query Parameters test
+============================
+curl "http://localhost:8080/greet?name=Alice"
+
+response: {"message":"Hello, Alice!"}
+
+
+POST test
+============================
+curl -X POST http://localhost:8082/submit \
+     -d "name=Alice"
+
+response: Thanks, Alice
+
+
+JSON test
+============================
 curl -X POST http://localhost:8082/submit \
      -H "Content-Type: application/json" \
      -d '{"name": "Alice"}'
 
-{"message":"Thanks, Alice"}
+response: {"message":"Thanks, Alice"}
+
+
+
 
