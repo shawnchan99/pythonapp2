@@ -5,7 +5,7 @@ http://localhost:8082/
 http://localhost:8082/about
 
 Query Parameters test:
-http://localhost:8080/greet?name=Alice
+http://localhost:8082/greet?name=Alice
 
 ================================================================
 HTML form POST test for submit(test2.html):
@@ -33,8 +33,10 @@ Use Postman (GUI Tool):
 3. 	Set method to POST
 4. 	Enter URL: http://localhost:8082/submit 
 5. 	In the Body tab, choose: x-www-form-urlencoded
-6. 	Add a key name with value Alice.
+6. 	Add a key "name" with value "Alice".
 7. 	Click Send — you’ll see the response.
+
+response: {"message":"Thanks, Alice"}
 
 ================================================================
 Use BASH curl:
@@ -46,7 +48,7 @@ curl -u admin:secret http://localhost:8082/secure-data
 
 Query Parameters test
 ============================
-curl "http://localhost:8080/greet?name=Alice"
+curl "http://localhost:8082/greet?name=Alice"
 
 response: {"message":"Hello, Alice!"}
 
